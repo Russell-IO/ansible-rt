@@ -7,7 +7,7 @@
 
 - name: Install haveged from EPEL
   yum:
-    name: https://dl.fedoraproject.org/pub/epel/7/x86_64/h/haveged-1.9.1-1.el7.x86_64.rpm
+    name: haveged
     state: present
 
 - name: Enable haveged
