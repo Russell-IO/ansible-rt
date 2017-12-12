@@ -24,8 +24,8 @@
         --type {{ item.type }}
         --ftype {{ item.ftype }}
         '{{ item.file_spec }}'
-      with_items: "{{ ansible_local.rt_fcontext }}"
-      when: ansible_local.rt_fcontext
+      with_items: "{{ rt_fcontext }}"
+      when: rt_fcontext
         
     - name: Create fcontext rules for RT
       command: >-
@@ -35,8 +35,8 @@
         --ftype {{ item.ftype }}
         '{{ item.file_spec }}'
       with_items: "{{ file_contexts }}"
-      
-  when: ansible_local.rt_fcontext != file_contexts
+
+  when: rt_fcontext != file_contexts
     
 - name: Restore default RT file contexts
   file:
